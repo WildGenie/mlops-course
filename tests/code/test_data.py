@@ -18,8 +18,7 @@ def df():
         {"title": "a4", "description": "b4", "tag": "c2"},
         {"title": "a5", "description": "b5", "tag": "c2"},
     ]
-    df = pd.DataFrame(data * 10)
-    return df
+    return pd.DataFrame(data * 10)
 
 
 @pytest.mark.parametrize(

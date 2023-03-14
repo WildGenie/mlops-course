@@ -180,10 +180,7 @@ class LabelEncoder:
         Returns:
             List: labels.
         """
-        classes = []
-        for i, item in enumerate(y):
-            classes.append(self.index_to_class[item])
-        return classes
+        return [self.index_to_class[item] for item in y]
 
     def save(self, fp: str) -> None:
         """Save class instance to JSON file.

@@ -13,8 +13,7 @@ def df():
         {"text": "This is short text.", "tag": "other"},
         {"text": "This is a very very very very long text.", "tag": "other"},
     ]
-    df = pd.DataFrame(data)
-    return df
+    return pd.DataFrame(data)
 
 
 @pytest.mark.parametrize(
@@ -30,8 +29,8 @@ def test_get_slices_metrics(df):
     y_pred = np.array([0, 0, 1])
     slices = PandasSFApplier([evaluate.nlp_cnn, evaluate.short_text]).apply(df)
     metrics = evaluate.get_slice_metrics(y_true=y_true, y_pred=y_pred, slices=slices)
-    assert metrics["nlp_cnn"]["precision"] == 1 / 1
-    assert metrics["nlp_cnn"]["recall"] == 1 / 1
+    assert metrics["nlp_cnn"]["precision"] == 1
+    assert metrics["nlp_cnn"]["recall"] == 1
     assert metrics["short_text"]["precision"] == 1 / 2
     assert metrics["short_text"]["recall"] == 1 / 2
 
