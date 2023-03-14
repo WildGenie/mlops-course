@@ -30,7 +30,7 @@ LOGS_DIR.mkdir(parents=True, exist_ok=True)
 BLOB_STORE.mkdir(parents=True, exist_ok=True)
 
 # MLFlow model registry
-mlflow.set_tracking_uri("file://" + str(MODEL_REGISTRY.absolute()))
+mlflow.set_tracking_uri(f"file://{str(MODEL_REGISTRY.absolute())}")
 
 # Logger
 logging_config = {

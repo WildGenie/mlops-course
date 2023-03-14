@@ -38,12 +38,12 @@ def get_slice_metrics(y_true: np.ndarray, y_pred: np.ndarray, slices: np.recarra
             slice_metrics = precision_recall_fscore_support(
                 y_true[mask], y_pred[mask], average="micro"
             )
-            metrics[slice_name] = {}
-            metrics[slice_name]["precision"] = slice_metrics[0]
-            metrics[slice_name]["recall"] = slice_metrics[1]
-            metrics[slice_name]["f1"] = slice_metrics[2]
-            metrics[slice_name]["num_samples"] = len(y_true[mask])
-
+            metrics[slice_name] = {
+                "precision": slice_metrics[0],
+                "recall": slice_metrics[1],
+                "f1": slice_metrics[2],
+                "num_samples": len(y_true[mask]),
+            }
     return metrics
 
 

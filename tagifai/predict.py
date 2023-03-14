@@ -36,11 +36,10 @@ def predict(texts: List, artifacts: Dict) -> List:
         index=artifacts["label_encoder"].class_to_index["other"],
     )
     tags = artifacts["label_encoder"].decode(y_pred)
-    predictions = [
+    return [
         {
             "input_text": texts[i],
             "predicted_tag": tags[i],
         }
         for i in range(len(tags))
     ]
-    return predictions

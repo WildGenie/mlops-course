@@ -9,8 +9,7 @@ from tagifai import main, predict
 @pytest.fixture(scope="module")
 def artifacts():
     run_id = open(Path(config.CONFIG_DIR, "run_id.txt")).read()
-    artifacts = main.load_artifacts(run_id=run_id)
-    return artifacts
+    return main.load_artifacts(run_id=run_id)
 
 
 @pytest.mark.parametrize(
